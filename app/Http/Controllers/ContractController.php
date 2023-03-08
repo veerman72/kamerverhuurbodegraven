@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Actions\Contracts\CreateContract;
+use App\Http\Resources\ContractResource;
 use App\Models\Contract;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,11 @@ class ContractController extends Controller
      */
     public function index()
     {
-        return Contract::all();
+        return ContractResource::collection(
+            Contract::query()
+                ->orderBy('reference')
+                ->paginate(),
+        );
     }
 
     /**
@@ -38,7 +43,7 @@ class ContractController extends Controller
      */
     public function show(Contract $contract)
     {
-        return $contract->load('unit.building.owner');
+        return ContractResource::make($contract->load(['unit.building.owner', 'tenants']));
     }
 
     /**

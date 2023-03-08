@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\BuildingResource;
+use App\Http\Resources\UnitResource;
 use App\Models\Building;
 use App\Models\Owner;
 use App\Models\Unit;
@@ -14,7 +16,7 @@ class OwnerBuildingUnitController extends Controller
      */
     public function index(Owner $owner, Building $building)
     {
-        return $building->load('units');
+        return BuildingResource::make($building->load(['owner', 'units']));
     }
 
     /**
@@ -38,7 +40,7 @@ class OwnerBuildingUnitController extends Controller
      */
     public function show(Owner $owner, Building $building, Unit $unit)
     {
-        return $unit;
+        return UnitResource::make($unit->load(['building.owner', 'contract_provisions']));
     }
 
     /**

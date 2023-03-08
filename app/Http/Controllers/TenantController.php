@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\TenantResource;
 use App\Models\Tenant;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,11 @@ class TenantController extends Controller
      */
     public function index()
     {
-        return Tenant::all();
+        return TenantResource::collection(
+            Tenant::query()
+                ->OrderByNameAndBirthday()
+                ->paginate(),
+        );
     }
 
     /**
@@ -36,7 +41,7 @@ class TenantController extends Controller
      */
     public function show(Tenant $tenant)
     {
-        return $tenant;
+        return TenantResource::make($tenant->load('contracts'));
     }
 
     /**

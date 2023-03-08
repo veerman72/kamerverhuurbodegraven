@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\OwnerResource;
 use App\Models\Owner;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,11 @@ class OwnerController extends Controller
      */
     public function index()
     {
-        return Owner::all();
+        return OwnerResource::collection(
+            Owner::query()
+                ->OrderByNameAndBirthday()
+                ->paginate(),
+        );
     }
 
     /**
@@ -36,7 +41,7 @@ class OwnerController extends Controller
      */
     public function show(Owner $owner)
     {
-        return $owner;
+        return OwnerResource::make($owner->load('buildings'));
     }
 
     /**

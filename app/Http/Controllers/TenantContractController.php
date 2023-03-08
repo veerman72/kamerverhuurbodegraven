@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ContractResource;
+use App\Http\Resources\TenantResource;
 use App\Models\Contract;
 use App\Models\Tenant;
 use Illuminate\Http\Request;
@@ -13,7 +15,7 @@ class TenantContractController extends Controller
      */
     public function index(Tenant $tenant)
     {
-        return $tenant->load('contracts');
+        return TenantResource::make($tenant->load('contracts'));
     }
 
     /**
@@ -37,7 +39,7 @@ class TenantContractController extends Controller
      */
     public function show(Tenant $tenant, Contract $contract)
     {
-        return $contract->load('unit.building.owner');
+        return ContractResource::make($contract->load('unit.building.owner'));
     }
 
     /**

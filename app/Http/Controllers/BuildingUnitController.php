@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\BuildingResource;
+use App\Http\Resources\UnitResource;
 use App\Models\Building;
 use App\Models\Unit;
 use Illuminate\Http\Request;
@@ -13,7 +15,7 @@ class BuildingUnitController extends Controller
      */
     public function index(Building $building)
     {
-        return $building->load('units');
+        return BuildingResource::make($building->load('units'));
     }
 
     /**
@@ -37,7 +39,7 @@ class BuildingUnitController extends Controller
      */
     public function show(Building $building, Unit $unit)
     {
-        return $unit;
+        return UnitResource::make($unit->load('building.owner'));
     }
 
     /**
