@@ -11,6 +11,7 @@ $authenticated = [
     //    'kitchens',
     //    'laundryrooms',
     'owners',
+    'owners/{owner}',
     'owners/{owner}/buildings',
     'owners/{owner}/buildings/{building}',
     'owners/{owner}/buildings/{building}/units',
