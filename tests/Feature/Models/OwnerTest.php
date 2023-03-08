@@ -38,15 +38,6 @@ it('can return an owner name with initials', function () {
         ->toBe('J.F. Kennedy');
 });
 
-it('can return an owner with fullName attribute', function () {
-    Owner::factory()->create([
-        'last_name' => 'Kennedy',
-        'first_name' => 'John Fitzgerald',
-    ]);
-
-    expect(Owner::query()->firstOrFail())->fullName->toBe('J.F. Kennedy');
-});
-
 test('an owner has a human readable IBAN-number', function () {
     Owner::factory()->create([
         'iban' => 'NL14RABO4040435087',

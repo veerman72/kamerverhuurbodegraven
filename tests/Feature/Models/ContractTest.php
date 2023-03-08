@@ -181,3 +181,36 @@ test('a contract PDF can be generated', function () {
 
     expect($pdf->generate())->toContain('PDF-1.4');
 });
+
+test('a contract PDF can be sent by email', function () {
+    //    send email with attachement
+})->skip();
+
+test('a contract status can be changed to draft', function () {
+    // set status
+    // set document name
+    // email document to owner?
+})->skip();
+
+test('a contract status can be changed to approval', function () {
+    // update status
+    // update document name
+    // email document to owner and/or tenant ?
+})->skip();
+
+test('a contract status can be changed to final', function () {
+    // update status
+    // email document to owner
+})->skip();
+
+test('a contract status can be changed to active', function () {
+    // update status via event?
+})->skip();
+
+test('a contract status can be changed to terminated', function () {
+    // update status via user input
+})->skip();
+
+test('a contract next_expiration must be update when contract is still active', function () {
+    // update status via event?
+})->skip();

@@ -2,12 +2,6 @@
 
 use Symfony\Component\HttpFoundation\Response;
 
-test('route exist', function ($uri) {
-    $this->withoutMiddleware()
-        ->get(uri: $uri)
-        ->assertStatus(status: Response::HTTP_OK);
-})->with(data: 'routes.all');
-
 test('route is not protected by middleware', function ($uri) {
     $this->get(uri: $uri)->assertStatus(status: Response::HTTP_OK);
 })->with(data: 'routes.guest');

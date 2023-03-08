@@ -32,8 +32,13 @@ test('a tenant can be created', function () {
         ->social_number->toBeNumeric();
 });
 
-it('can return a tenant with fullName attribute', function () {
-    Tenant::factory()->create(['last_name' => 'Kennedy', 'first_name' => 'John Fitzgerald']);
+it('can return an tenant name with initials', function () {
+    Tenant::factory()->create([
+        'last_name' => 'Kennedy',
+        'first_name' => 'John Fitzgerald',
+    ]);
 
-    expect(Tenant::query()->firstOrFail())->fullName->toBe('J.F. Kennedy');
+    expect(Tenant::query()->firstOrFail())
+        ->nameWithInitials()
+        ->toBe('J.F. Kennedy');
 });
