@@ -506,7 +506,7 @@ class DefaultContractService extends Fpdf
         $tenants->each(function ($tenant, $index) use ($y) {
             $this->SetY($y);
             $this->signature(
-                name: $tenant->full_name,
+                name: $tenant->nameWithInitials(),
                 x: $index === 0 ? $this->dimensions->align->left : $this->dimensions->align->center,
             );
         });

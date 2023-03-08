@@ -602,12 +602,12 @@ class ContractRoz2017Service extends DefaultContractService
         parent::writeClosing(copies: $copies);
 
         $y = $this->GetY();
-        $this->fullSignature(name: $this->owner->full_name, x: $this->dimensions->align->center, y: $y);
+        $this->fullSignature(name: $this->owner->nameWithInitials(), x: $this->dimensions->align->center, y: $y);
         $this->SetY($y);
 
         $this->tenant->each(function ($tenant, $index) {
             $this->fullSignature(
-                name: $tenant->full_name,
+                name: $tenant->nameWithInitials(),
                 x: $this->dimensions->align->left,
                 y: $index === 0 ? $this->GetY() : $this->GetY() + $this->font->line_height * 3,
             );
