@@ -58,14 +58,14 @@ class TenantSeeder extends Seeder
             'social_number' => 394000122,
         ]);
         Tenant::query()->create([
-            'last_name' => 'Jacobiec',
+            'last_name' => 'Jakubiec',
             'first_name' => 'Gracjana',
-            'place_of_birth' => 'Wodzistaw Slaska (Poland)',
+            'place_of_birth' => 'Wodzislaw Slaski (Poland)',
             'date_of_birth' => '1999-08-08',
             'address' => 'Nicolaas Beetsstraat 62 A',
             'zipcode' => '3117ST',
             'city' => 'Schiedam',
-            'email' => 'gracjana.jacobiec1@gmail.com',
+            'email' => 'gracjana.jakubiec1@gmail.com',
             'phone' => '+31623873097',
             'employer' => 'Laban Foods',
             'id_document_type' => 2,

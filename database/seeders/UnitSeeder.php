@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Enums\RentalCategory;
+use App\Enums\RentalStatus;
 use App\Models\Unit;
 use Illuminate\Database\Seeder;
 
@@ -90,6 +91,8 @@ class UnitSeeder extends Seeder
                 'reference' => 'KS4911',
                 'building_id' => 5,
                 'category' => RentalCategory::APARTMENT->value,
+                'status' => RentalStatus::RENTED_OUT,
+                'price' => 115000,
                 'energy_costs_advanced' => 15000,
                 'energy_costs_included' => true,
                 'independent_living_space' => true,
@@ -104,6 +107,8 @@ class UnitSeeder extends Seeder
                 'reference' => 'KS4921',
                 'building_id' => 5,
                 'category' => RentalCategory::APARTMENT->value,
+                'status' => RentalStatus::RESERVED,
+                'price' => 115000,
                 'energy_costs_advanced' => 15000,
                 'energy_costs_included' => true,
                 'independent_living_space' => true,

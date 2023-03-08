@@ -16,7 +16,7 @@ class ContractSeeder extends Seeder
     {
         Contract::query()
             ->create([
-                'reference' => 'KS30_20230123_concept',
+                'reference' => 'KS30_20230123',
                 'unit_id' => Unit::query()
                     ->where('reference', '=', 'KS30')
                     ->get('id')
@@ -27,7 +27,7 @@ class ContractSeeder extends Seeder
                 'next_expiration' => '2024-01-31',
                 'notice_period' => 1,
                 'duration' => 12,
-                'status' => ContractStatus::DRAFT,
+                'status' => ContractStatus::ACTIVE,
                 'price' => 125000,
                 'deposit' => 250000,
             ])
@@ -35,7 +35,7 @@ class ContractSeeder extends Seeder
             ->attach([1, 2]);
         Contract::query()
             ->create([
-                'reference' => 'KS4911_20230306_concept',
+                'reference' => 'KS4911_20230308',
                 'unit_id' => Unit::query()
                     ->where('reference', '=', 'KS4911')
                     ->get('id')
@@ -46,7 +46,7 @@ class ContractSeeder extends Seeder
                 'next_expiration' => '2024-03-31',
                 'notice_period' => 1,
                 'duration' => 12,
-                'status' => ContractStatus::DRAFT,
+                'status' => ContractStatus::FINAL,
                 'price' => 115000,
                 'deposit' => 230000,
                 'energy_costs_advanced' => 15000,
@@ -67,7 +67,7 @@ class ContractSeeder extends Seeder
                 'next_expiration' => '2024-03-31',
                 'notice_period' => 1,
                 'duration' => 12,
-                'status' => ContractStatus::DRAFT,
+                'status' => ContractStatus::APPROVAL,
                 'price' => 115000,
                 'deposit' => 230000,
                 'energy_costs_advanced' => 15000,
